@@ -1,0 +1,11 @@
+﻿<h2>Access Logs</h2>
+<table class="table">
+    <tr><th>User</th><th>Time</th></tr>
+    @foreach (var item in ViewBag.Logs as List<Tuple<string, DateTime>>)
+    {
+        <tr>
+            <td>@item.Item1</td>
+            <td>@item.Item2</td>
+        </tr>
+    }
+</table>
