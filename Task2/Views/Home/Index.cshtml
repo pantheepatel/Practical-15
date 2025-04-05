@@ -1,0 +1,9 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+    <p>Welcome, @User.Identity.Name</p>
+    <a href="@Url.Action("Logout", "Account")" class="btn btn-danger">Logout</a>
+}

@@ -1,0 +1,5 @@
+CREATE TABLE AccessLogs (
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    UserName NVARCHAR(100),
+    AccessTime DATETIME
+);
