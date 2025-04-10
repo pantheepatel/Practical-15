@@ -74,7 +74,7 @@ Click the **Log** button or visit the route manually to validate that the logged
 
 ### Step-by-Step Setup
 
-1. Use the same MVC project or create a new one.
+1. Use the same MVC project and make Task2 project as startup.
 
 2. Update the same `applicationhost.config` file:
 
@@ -105,28 +105,9 @@ VALUES
 ('user2', 'pass456');
 ```
 
-4. In your MVC project:
-   - Create a `Login` view with username and password fields.
-   - On form submission, authenticate against the database using ADO.NET or Entity Framework.
-   - If valid, set the `FormsAuthentication.SetAuthCookie(username, false)` and redirect.
-   - Use `[Authorize]` attribute on secure pages to restrict unauthenticated access.
-
-5. Update the `Web.config` for Forms Authentication:
-
-```xml
-<system.web>
-  <authentication mode="Forms">
-    <forms loginUrl="~/Account/Login" timeout="30" />
-  </authentication>
-  <authorization>
-    <deny users="?" />
-  </authorization>
-</system.web>
-```
-
 ### Validation
 
-Run the application and login with one of the users from the `Users` table. After successful login, display the username of the currently logged-in user.
+Run the application and login with one of the users from the `Users` table. After successful login, you will be able to see username of the currently logged-in user.
 
 ---
 
@@ -134,4 +115,4 @@ Run the application and login with one of the users from the `Users` table. Afte
 
 - This project uses **Code First / ADO.NET**, not Database First, to keep the implementation lightweight.
 - Always verify the correct authentication block is active in both `Web.config` and `applicationhost.config`.
-- You must restart Visual Studio or IIS Express after modifying the `applicationhost.config` file.
+- You must restart Visual Studio after modifying the `applicationhost.config` file.
