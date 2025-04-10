@@ -22,11 +22,6 @@ In your `Web.config`, update the connection string based on your system setup:
 </connectionStrings>
 ```
 
-In Package Manager Console (PMC), run:
-
-   ```bash
-   Update-Database
-```
 ---
 
 ## Test 1: Windows Authentication
