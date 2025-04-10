@@ -56,17 +56,12 @@ In Package Manager Console (PMC), run:
 
 Ensure the same block exists there.
 
-4. Go to **Control Panel > Administrative Tools > Internet Information Services (IIS) Manager**:
-   - Expand the left pane and click on **Sites > Default Web Site**.
-   - Click on **Authentication** in the right-hand panel.
-   - **Enable** *Windows Authentication* and **disable** *Anonymous Authentication*.
-   - Then click on **Authorization Rules** under the **IIS** section.
-     - Click **Edit Feature Settings** and select **Custom**.
-     - Add rules to allow users or groups as needed.
+4. Go to **Control Panel > Network and Internet > Internet Options > Security > Local Intranet**:
+   - Click on **Sites**, then **Advanced**, and add `http://localhost` to the list.
+   - Then click on **Custom level**, scroll down to **User Authentication > Logon**, and select **"Automatic logon with current username and password"**.
 
-5. In your MVC project:
-   - Log the Windows user via `User.Identity.Name`.
-   - Create a simple action method (e.g., `Log`) and log or show the current user’s Windows username.
+5. In output:
+   - Goto log table or check the current user’s Windows username.
    - This proves that authentication is working.
 
 ### Validation
