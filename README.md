@@ -22,13 +22,18 @@ In your `Web.config`, update the connection string based on your system setup:
 </connectionStrings>
 ```
 
+In Package Manager Console (PMC), run:
+
+   ```bash
+   Update-Database
+```
 ---
 
 ## Test 1: Windows Authentication
 
 ### Step-by-Step Setup
 
-1. Create a new **ASP.NET MVC (Framework)** project.
+1. Clone project.
 
 2. In the `Web.config` file, confirm or update the following under `<system.webServer>` section:
 
@@ -46,25 +51,20 @@ In your `Web.config`, update the connection string based on your system setup:
 3. Go to the following path:
 
 ```
-.vs\YOUR_PROJECT_NAME\config\applicationhost.config
+.vs\Practical-15\config\applicationhost.config
 ```
 
-Ensure the same block exists there. If not, add it manually.
+Ensure the same block exists there.
 
-4. Add this table to your **Practical15** database using either Code First or ADO.NET:
+4. Go to **Control Panel > Administrative Tools > Internet Information Services (IIS) Manager**:
+   - Expand the left pane and click on **Sites > Default Web Site**.
+   - Click on **Authentication** in the right-hand panel.
+   - **Enable** *Windows Authentication* and **disable** *Anonymous Authentication*.
+   - Then click on **Authorization Rules** under the **IIS** section.
+     - Click **Edit Feature Settings** and select **Custom**.
+     - Add rules to allow users or groups as needed.
 
-```csharp
-public class UserRole
-{
-    public int Id { get; set; }
-    public string WindowsUserName { get; set; }
-    public string Role { get; set; }
-}
-```
-
-5. Go to **Control Panel > Programs > Turn Windows Features on or off > Internet Information Services > World Wide Web Services > Security**, and ensure **Windows Authentication** is enabled.
-
-6. In your MVC project:
+5. In your MVC project:
    - Log the Windows user via `User.Identity.Name`.
    - Create a simple action method (e.g., `Log`) and log or show the current user’s Windows username.
    - This proves that authentication is working.
