@@ -22,6 +22,37 @@ In your `Web.config`, update the connection string based on your system setup:
 </connectionStrings>
 ```
 
+## Database Setup
+
+```sql
+CREATE DATABASE Practical15;
+USE Practical15;
+```
+
+### Users Table
+
+The Users table stores authentication credentials.
+
+```sql
+CREATE TABLE Users (
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    Username NVARCHAR(100) NOT NULL,
+    Password NVARCHAR(100) NOT NULL
+);
+```
+
+### AccessLogs Table
+
+The AccessLogs table tracks user login activity.
+
+```sql
+CREATE TABLE AccessLogs (
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    UserName NVARCHAR(100),
+    AccessTime DATETIME
+);
+```
+
 ---
 
 ## Test 1: Windows Authentication
